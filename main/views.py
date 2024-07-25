@@ -6,15 +6,18 @@ from django.template import context
 
 def index(request):
     context: dict = {
-        'title': 'HarmonyHome',
-        'content': 'Головна сторінка магазина - HarmonyHome',
-        'list': ['first', 'second'],
-        'dict': {'first': 1},
-        'is_authenticated': False
+        'title': 'HarmonyHome - Головна',
+        'content': "Текстиль для дому HarmonyHome"
     }
 
     return render(request, 'main/index.html', context) 
 
 
 def about(request):
-    return HttpResponse('About page')
+    context: dict = {
+        'title': 'HarmonyHome - Про нас',
+        'content': "Про нас",
+        'text_on_page': "Текст про що, чому вам варто купляти товар у нас і якої він якості",
+    }
+
+    return render(request, 'main/about.html', context)    
